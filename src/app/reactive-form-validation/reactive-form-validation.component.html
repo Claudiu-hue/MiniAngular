@@ -1,0 +1,124 @@
+<form class="row g-3 needs-validation" novalidate [formGroup]="useForm">
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">First name</label>
+    <input type="text" class="form-control" formControlName="firstName" />
+    <div
+      class="text-danger"
+      *ngIf="
+        useForm.controls['firstName'].invalid &&
+        (isFormSubmited ||
+          useForm.controls['firstName'].touched ||
+          useForm.controls['firstName'].dirty)
+      "
+    >
+      <span *ngIf="useForm.controls['firstName'].errors?.['required']"
+        >This is required</span
+      >
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Last name</label>
+    <input type="text" class="form-control" formControlName="lastName" />
+    <!-- <div class="text-danger">Please select a valid state.</div> -->
+    <div
+      class="text-danger"
+      *ngIf="
+        useForm.controls['lastName'].invalid &&
+        (isFormSubmited ||
+          useForm.controls['lastName'].touched ||
+          useForm.controls['lastName'].dirty)
+      "
+    >
+      <span *ngIf="useForm.controls['lastName'].errors?.['required']"
+        >This is required</span
+      >
+      <span *ngIf="useForm.controls['lastName'].errors?.['minlength']"
+        >Min Characters Required</span
+      >
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Username</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+      <input type="text" class="form-control" formControlName="userName" />
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="
+        useForm.controls['userName'].invalid &&
+        (isFormSubmited ||
+          useForm.controls['userName'].touched ||
+          useForm.controls['userName'].dirty)
+      "
+    >
+      <span *ngIf="useForm.controls['userName'].errors?.['required']"
+        >This is required</span
+      >
+      <span *ngIf="useForm.controls['userName'].errors?.['email']"
+        >This is not proper email</span
+      >
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom03" class="form-label">City</label>
+    <input
+      type="text"
+      formControlName="city"
+      class="form-control"
+      id="validationCustom03"
+    />
+    <div
+      class="text-danger"
+      *ngIf="
+        useForm.controls['city'].invalid &&
+        (isFormSubmited ||
+          useForm.controls['city'].touched ||
+          useForm.controls['city'].dirty)
+      "
+    >
+      <span *ngIf="useForm.controls['city'].errors?.['required']"
+        >This is required</span
+      >
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom04" class="form-label">State</label>
+    <select class="form-select" formControlName="state" id="validationCustom04">
+      <option selected disabled value="">Choose...</option>
+      <option>Maharashtra</option>
+      <option>Punjab</option>
+      <option>Goa</option>
+    </select>
+    <!-- <div class="text-danger">
+        Please select a valid state.
+      </div> -->
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom05" class="form-label">Zip</label>
+    <input
+      type="text"
+      formControlName="zipcode"
+      class="form-control"
+      id="validationCustom05"
+    />
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        formControlName="isAgree"
+        type="checkbox"
+        id="invalidCheck"
+      />
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" (click)="onSubmit()" type="button">
+      Submit form
+    </button>
+  </div>
+</form>
