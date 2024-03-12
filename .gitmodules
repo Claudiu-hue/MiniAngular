@@ -1,0 +1,7 @@
+[submodule "reactive-form"]
+    path = reactive-form
+    url = https://github.com/Claudiu-hue/MiniAngular.git
+
+[submodule "template-form"]
+    path = template-form
+    url = https://github.com/Claudiu-hue/MiniAngular.git
